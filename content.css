@@ -1,0 +1,42 @@
+.ojad-tooltip-hover {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+}
+
+.ojad table {
+    margin-bottom: 0;
+}
+
+.ojad-tooltip {
+    margin-left: 10px;
+    margin-top: 10px;
+    padding: 10px;
+
+    visibility: hidden;
+    border-radius: 6px;
+    text-align: center;
+    background-color: white;
+    border: 1px solid #999999;
+    box-shadow: -5px -5px 10px #999999;
+    position: absolute;
+    z-index: 1;
+}
+
+.ojad-tooltip-hover:hover + .ojad-tooltip
+{
+    visibility: visible;
+}
+
+span.accent_plain{
+    border-top: solid 1px black;
+    padding-top:1px;
+}
+
+span.accent_top{
+    border-top: solid 1px black;
+    border-right: solid 1px black;
+    padding-top:1px;
+    margin-right: 1px;
+    padding-right: 1px;
+}

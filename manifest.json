@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+
+  "name": "Jisho-OJAD",
+  "description": "Add pitch accent display to Jisho",
+  "version": "1.0",
+
+  "background": {
+    "scripts": ["jquery.js", "parse.js", "background.js"]
+  },
+
+  "content_scripts": [
+    { "matches": [ "http://jisho.org/search/*", "http://www.jisho.org/search/*" ],
+      "js": ["jquery.js", "content.js"],
+      "css": ["content.css"]
+    }
+  ],
+
+  "permissions": [
+    "nativeMessaging",
+    "http://www.gavo.t.u-tokyo.ac.jp/"
+  ]
+}
