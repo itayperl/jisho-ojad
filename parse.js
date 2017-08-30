@@ -44,6 +44,10 @@ function parseOJAD(page)
                 {
                     word = word.substr(0, idx);
                 }
+                if ((word.length > 2) && (word.substr(-2) == 'する'))
+                {
+                    word = word.substr(0, word.length-2);
+                }
 
                 if (!results.hasOwnProperty(word))
                 {
