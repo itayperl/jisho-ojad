@@ -9,7 +9,7 @@ function parseOJAD(page)
     html.find('#search_result').find('tr').each(function(idx, elt) {
         elt = $(elt);
 
-        if (elt.parent().prop('tagName') == 'THEAD')
+        if (elt.attr('id') == null)
         {
             /* handle header */
             activeHeader = [];
