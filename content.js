@@ -33,29 +33,38 @@ function add_pitch()
 
             for (var i in result[word])
             {
-                var html = $(result[word][i].data[0]);
+                var main = $('<div/>');
+                for (let reading of result[word][i].data[0])
+                {
+                    main.append($('<div/>').html(reading));
+                }
                 var obj;
-                addAfter = obj = $('<div class="ojad meaning-wrapper"></div>').append($('<div class="ojad-tooltip-hover"/>').html(html)).insertAfter(addAfter);
+                addAfter = obj = $('<div class="ojad meaning-wrapper"></div>').append($('<div class="ojad-tooltip-hover"/>').html(main)).insertAfter(addAfter);
 
                 var table = $('<table/>');
                 for (var idx in result[word][i].header)
                 {
                     var tr = $('<tr/>');
 
-                    var datum = word;
+                    var data = [ word ];
                     if (idx > 0)
                     {
-                        datum = result[word][i].data[idx-1];
+                        data = result[word][i].data[idx-1];
                     }
 
-                    if ($.trim(datum) == '')
+                    if (data.length == 0)
                     {
                         continue;
                     }
 
                     tr.append($('<th/>').text(result[word][i].header[idx]))
-                    tr.append($('<td/>').html(datum));
+                    td = $('<td/>');
+                    for (let datum of data)
+                    {
+                        td.append($('<div/>').html(datum));
+                    }
 
+                    tr.append(td)
                     table.append(tr);
                 }
 

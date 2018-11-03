@@ -58,7 +58,7 @@ function parseOJAD(page)
             }
             else
             {
-                activeWord.data[activeWord.data.length] = elt.find('.accented_word').html();
+                activeWord.data[activeWord.data.length] = elt.find('.accented_word').map(function(e) { return this.innerHTML; }).get();
             }
         });
         
