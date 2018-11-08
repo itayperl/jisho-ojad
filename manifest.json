@@ -3,7 +3,7 @@
 
   "name": "Jisho-OJAD",
   "description": "Add pitch accent display to Jisho",
-  "version": "1.4",
+  "version": "1.5",
 
   "background": {
     "scripts": ["jquery.js", "parse.js", "background.js"]

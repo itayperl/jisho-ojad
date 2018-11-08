@@ -32,10 +32,6 @@ function parseOJAD(page)
         {
             elt = $(elt);
             var text = $.trim(elt.text());
-            if (text == '')
-            {
-                return;
-            }
             if (elt.hasClass('midashi'))
             {
                 var word = text;
