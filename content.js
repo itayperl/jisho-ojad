@@ -23,12 +23,14 @@ function add_pitch()
         words[words.length] = word;
 
         p = p.then(function() {
+            var addAfter = $(this).parent().find('.meanings-wrapper').children().last();
+
             if (!result.hasOwnProperty(word))
             {
+                $('<div class="ojad meaning-tags">No pitch accent information</div>').insertAfter(addAfter);
                 return;
             }
 
-            var addAfter = $(this).parent().find('.meanings-wrapper').children().last();
             addAfter = $('<div class="ojad meaning-tags">Pitch accent</div>').insertAfter(addAfter);
 
             for (var i in result[word])
