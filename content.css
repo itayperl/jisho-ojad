@@ -8,6 +8,10 @@
     margin-bottom: 0;
 }
 
+.ojad td {
+    padding: 3px;
+}
+
 .ojad-tooltip {
     margin-left: 10px;
     margin-top: 10px;
@@ -26,6 +30,10 @@
 .ojad-tooltip-hover:hover + .ojad-tooltip
 {
     visibility: visible;
+}
+
+div.accented_word{
+    margin-top: .5em;
 }
 
 span.accent_plain{

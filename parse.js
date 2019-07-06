@@ -1,3 +1,15 @@
+function parseWord()
+{
+    /* so jquery map() auto-flattens the resulting list. makes perfect sense, yes. */
+    return [ $(this).find('.char').map((i, e) => {
+        var type = $(e).parent().parent().attr('class').trim().split(/\s+/)[0]
+        if ((type != 'accent_top') && (type != 'accent_plain')) {
+            type = '';
+        }
+        return { 'type': type, 'char': $(e).text() }
+    }).get() ];
+}
+
 function parseOJAD(page)
 {
     var html = $(page);
@@ -54,7 +66,7 @@ function parseOJAD(page)
             }
             else
             {
-                activeWord.data[activeWord.data.length] = elt.find('.accented_word').map(function(e) { return this.innerHTML; }).get();
+                activeWord.data[activeWord.data.length] = elt.find('.accented_word').map(parseWord).get();
             }
         });
         

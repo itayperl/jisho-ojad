@@ -1,5 +1,18 @@
 var busy = false;
 
+function readingToHtml(reading) {
+    var div = $('<div class="accented_word"/>');
+    reading.map(({type, char}) => {
+        var sp = $('<span/>');
+        if (type!='') {
+            sp.addClass(type);
+        }
+        sp.text(char);
+        div.append(sp);
+    });
+    return div;
+}
+
 function add_pitch()
 {
     var d = $.Deferred();
@@ -38,7 +51,7 @@ function add_pitch()
                 var main = $('<div/>');
                 for (let reading of result[word][i].data[0])
                 {
-                    main.append($('<div/>').html(reading));
+                    main.append(readingToHtml(reading));
                 }
                 var obj;
                 addAfter = obj = $('<div class="ojad meaning-wrapper"></div>').append($('<div class="ojad-tooltip-hover"/>').html(main)).insertAfter(addAfter);
@@ -63,7 +76,11 @@ function add_pitch()
                     td = $('<td/>');
                     for (let datum of data)
                     {
-                        td.append($('<div/>').html(datum));
+                        if (typeof(datum) == 'string') {
+                            td.append($('<div/>').text(datum));
+                        } else {
+                            td.append(readingToHtml(datum));
+                        }
                     }
 
                     tr.append(td)
