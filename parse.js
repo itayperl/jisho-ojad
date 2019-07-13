@@ -1,8 +1,8 @@
 function parseWord()
 {
     /* so jquery map() auto-flattens the resulting list. makes perfect sense, yes. */
-    return [ $(this).find('.char').map((i, e) => {
-        var type = $(e).parent().parent().attr('class').trim().split(/\s+/)[0]
+    return [ $(this).find('.inner').map((i, e) => {
+        var type = $(e).parent().attr('class').trim().split(/\s+/)[0]
         if ((type != 'accent_top') && (type != 'accent_plain')) {
             type = '';
         }
