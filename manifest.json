@@ -3,15 +3,15 @@
 
   "name": "Jisho-OJAD",
   "description": "Add pitch accent display to Jisho",
-  "version": "1.8",
+  "version": "1.9",
 
   "background": {
     "scripts": ["jquery.js", "parse.js", "background.js"]
   },
 
   "content_scripts": [
-    { "matches": [ "http://jisho.org/search/*", "http://www.jisho.org/search/*",
-                "https://jisho.org/search/*", "https://www.jisho.org/search/*" ],
+    { "matches": [ "*://jisho.org/search/*", "*://www.jisho.org/search/*",
+                   "*://jisho.org/word/*", "*://www.jisho.org/word/*" ],
       "js": ["jquery.js", "content.js"],
       "css": ["content.css"]
     }

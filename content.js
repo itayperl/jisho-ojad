@@ -27,7 +27,7 @@ function add_pitch()
     var result = {};
     var words = [];
 
-    $('#primary .concept_light-wrapper').each(function() {
+    $('#primary .concept_light-wrapper, article .concept_light-wrapper').each(function() {
         if ($(this).parent().find('.ojad').length > 0) {
             return;
         }
